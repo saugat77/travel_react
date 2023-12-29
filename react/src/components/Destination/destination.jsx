@@ -41,13 +41,16 @@ const destination = () => {
         < Link className='btn-add' to="/admin/destinations/create" > Create Destinations</Link >
       </div >
       <div className="card animate fadeInDown">
-        <table className='table-striped border-dark'>
+        <table className='table-bordered table-striped border-dark'>
           <thead>
             <tr>
               <th>ID</th>
               <th>Title</th>
+              <th>Location</th>
+              <th>Amount</th>
               <th>Description</th>
               <th>Image</th>
+              <th>Is Active</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -66,12 +69,15 @@ const destination = () => {
             <tbody>
 
               {
-                destinations.map(u => (
+                destinations.map((u, index) => (
                   <tr key={u.id}>
-                    <td>{u.id}</td>
+                    <td>{index + 1}</td>
                     <td>{u.title}</td>
+                    <td>{u.location}</td>
+                    <td>{u.fees}</td>
                     <td>{u.description}</td>
-                    <td>{u.image_src}</td>
+                    <td><img src={u.image_src} alt="" style={{ marginLeft: '5%', maxHeight: '100px', maxWidth: '50px', borderRadius: '10%' }} /></td>
+                    <td>{u.is_active === 1 ? (<span className='text-success'>Yes</span>) : (<span className='text-danger'>No</span>)}</td>
                     <td>
                       <Link to={'/admin/destinations/edit/' + u.id} className='btn-edit'>  Edit </Link>
                       &nbsp;

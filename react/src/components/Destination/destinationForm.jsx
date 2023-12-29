@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { useState } from 'react';
 import axiosClient from '../../axios-client';
 
@@ -22,9 +22,18 @@ const destinationForm = () => {
   })
   const onSubmit = (ev) => {
     ev.preventDefault();
+    const formData = new FormData();
+    formData.append('title', destination.title);
+    formData.append('fees', destination.fees);
+    formData.append('location', destination.location);
+    formData.append('category', destination.category);
+    formData.append('is_active', destination.is_active);
+    formData.append('description', destination.description);
+    formData.append('image_src', file ?? destination.image_src);
     if (destination.id) {
-      axiosClient.post(`/destination/update/${destination.id}`, destination).then(({ data }) => {
-        console.log(data);
+      axiosClient.post(`/destination/update/${destination.id}`, formData).then(({ data }) => {
+        <Link to="/admin/destinations" />
+
       })
         .catch(err => {
           const response = err.response;
@@ -33,8 +42,8 @@ const destinationForm = () => {
           }
         })
     } else {
-      axiosClient.post(`/destination/create`, destination).then(({ data }) => {
-        console.log(data);
+      axiosClient.post(`/destination/create`, formData).then(({ data }) => {
+        <Link to="/admin/destinations" />
       })
         .catch(err => {
           const response = err.response;
@@ -49,19 +58,13 @@ const destinationForm = () => {
   const imageShow = (event) => {
     const file = event.target.files[0];
     setTempImage(file);
-    setDestinations({ ...destination, image_src: event.target.files[0] })
-    if (id) {
-
-      axiosClient.get(`/destination/replace/image/${id}`, file).then(({ data }) => {
-        console.log(data);
-      })
-    }
     console.log(file);
   }
   useEffect(() => {
     setLoading(true);
 
     const fetchData = async () => {
+
       try {
         if (id) {
           const { data } = await axiosClient.get(`/destination/show/${id}`);
@@ -137,13 +140,15 @@ const destinationForm = () => {
             </div>
             <div className='col-md-6 mb-2'>
               <label>Image</label>
+              <br />
               {
                 file ? (
-                  <img src={URL.createObjectURL(file)} alt="" />
+                  <img src={URL.createObjectURL(file)} alt="" style={{ marginLeft: '15%', maxHeight: '30%', maxWidth: '30%', borderRadius: '10%' }} />
                 ) : (
-                  <img src="" alt="" />
+                  <img src={destination.image_src} alt="" style={{ marginLeft: '15%', maxHeight: '30%', maxWidth: '30%', borderRadius: '10%' }} />
                 )
               }
+
               <input onChange={imageShow} type="file" />
             </div>
 

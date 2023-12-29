@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class DestinationController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -32,7 +33,7 @@ class DestinationController extends Controller
             'description' => 'required',
             'is_active' => 'required',
         ]);
-        return $request;
+
         $destination =  new DestinationModel();
         $destination->title = $createDestination['title'];
         $destination->location = $createDestination['location'];
@@ -41,9 +42,10 @@ class DestinationController extends Controller
         $destination->description = $createDestination['description'];
         $destination->is_active = $createDestination['is_active'];
         if ($request->has('image_src')) {
-            $image =  $request->file('image_src');
-            $name = time() . '.' . $image->getClientOriginalExtension();
-            $finalImage =  $image->storeAs(public_path() . '/destiantions/' . $name);
+            $image = $request->file('image_src');
+            $name = $this->imageReplace($image);
+
+            // Update the destination's image_src with the file path
             $destination->image_src = $name;
         }
         $destination->save();
@@ -82,6 +84,14 @@ class DestinationController extends Controller
         ]);
         $destination = DestinationModel::find($id);
         $destination->update($data);
+        if ($request->has('image_src')) {
+            $image = $request->file('image_src');
+            $name = $this->imageReplace($image);
+
+            // Update the destination's image_src with the file path
+            $destination->image_src = $name;
+        }
+        $destination->update();
         return new DestinationResource($destination);
     }
 
@@ -93,11 +103,14 @@ class DestinationController extends Controller
         $destinations = DestinationModel::find($id)->delete();
         return response("", 204);
     }
-    public function imageReplace($id)
+    public function imageReplace($image)
     {
-        $replace = DestinationModel::find($id);
-        $replace->image_src = '';
-        $replace->update();
-        return new DestinationResource($replace);
+
+        $name = time() . '.' . $image->getClientOriginalExtension();
+
+        // Store the file in the 'public/destinations' directory
+        $filePath = $image->storeAs('public/destinations', $name);
+        $src = 'destinations/' . $name;
+        return $src;
     }
 }
