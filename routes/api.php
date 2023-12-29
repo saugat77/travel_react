@@ -29,3 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/destinations', [DestinationController::class, 'index']);
 Route::delete('/destination/delete/{id}', [DestinationController::class, 'delete']);
+Route::get('/destination/show/{id}', [DestinationController::class, 'show']);
+Route::post('/destination/update/{id}', [DestinationController::class, 'update']);
+Route::post('/destination/create', [DestinationController::class, 'create']);
+Route::get('/destination/replace/image/{id}', [DestinationController::class, 'imageReplace']);

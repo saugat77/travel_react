@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link, Navigate, Outlet } from 'react-router-dom'
 import { useStateContext } from '../../contexts/ContextProvider'
 import axiosClient from '../../axios-client';
+import '../../views/login-and-signup.css';
 
 import axios from 'axios';
 function DashboardLayouts() {
@@ -23,7 +24,7 @@ function DashboardLayouts() {
     })
   }, []);
   return (
-    <div id='dashboardlayout'>
+    <div id='defaultLayout'>
       <aside>
         <Link to="/admin/dashboard">Dashboard</Link>
         <Link to="/admin/users">Users</Link>

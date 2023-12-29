@@ -10,4 +10,5 @@ class DestinationModel extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $fillable = ['title', 'image_src', 'location', 'category', 'fees', 'is_active'];
 }
