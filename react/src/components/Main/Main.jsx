@@ -1,5 +1,7 @@
 import React from 'react';
 import './main.css';
+import axiosClient from '../../axios-client';
+
 
 function Main() {
     return (
