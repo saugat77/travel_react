@@ -2,3 +2,13 @@
   color: red;
   text-align: center;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  align-items: center;
+}

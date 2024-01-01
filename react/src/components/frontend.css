@@ -56,7 +56,7 @@ li {
   align-items: center;
 }
 
-.btn {
+.frontendbtn {
   padding: .6rem 1.5rem;
   background: var(--gradientColor);
   border-radius: 3rem;
