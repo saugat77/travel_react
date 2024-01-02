@@ -3,6 +3,7 @@ import './main.css';
 import axiosClient from '../../axios-client';
 import { GrLocation } from 'react-icons/gr';
 import { FaEye } from "react-icons/fa6";
+import Footer from "../Footer/Footer";
 
 
 function Main() {
@@ -50,7 +51,7 @@ function Main() {
 
                   <div className="fees flex">
                     <div className="grade">
-                      <span>{u.category}(<small>+1</small>)</span>
+                      <span>{u.category}<small>+1</small></span>
                     </div>
                     <div className='price'>
                       <h5>{u.fees}</h5>
@@ -71,6 +72,7 @@ function Main() {
 
         </div>
       </section >
+      <Footer />
     </>
 
   )

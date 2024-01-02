@@ -123,14 +123,15 @@
   font-weight: 500;
   text-transform: capitalize;
 }
-.main .secContent .singleDestination .cardInfo .btn {
+.main .secContent .singleDestination .cardInfo .frontendbtn {
+  border: 1px solid red;
   margin-top: 1rem;
   color: var(--whiteColor);
   font-weight: 600;
   justify-content: space-between;
   gap: 0.5rem;
 }
-.main .secContent .singleDestination .cardInfo .btn .icon {
+.main .secContent .singleDestination .cardInfo .frontendbtn .icon {
   align-self: center;
   font-size: 18px;
 }/*# sourceMappingURL=main.css.map */
