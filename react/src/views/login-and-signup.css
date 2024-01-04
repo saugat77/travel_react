@@ -136,6 +136,9 @@ table>tbody>tr>td {
   padding: 0.5rem 0.5rem;
   border-bottom: 1px solid #efefef;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: fit-content;
 }
 
 .card {

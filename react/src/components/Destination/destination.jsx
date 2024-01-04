@@ -75,7 +75,7 @@ const destination = () => {
                     <td>{u.title}</td>
                     <td>{u.location}</td>
                     <td>{u.fees}</td>
-                    <td>{u.description}</td>
+                    <td class="description" style={{ maxWidth: '200px' }}><span>{u.description}</span></td>
                     <td><img src={u.image_src} alt="" style={{ marginLeft: '5%', maxHeight: '100px', maxWidth: '50px', borderRadius: '10%' }} /></td>
                     <td>{u.is_active === 1 ? (<span className='text-success'>Yes</span>) : (<span className='text-danger'>No</span>)}</td>
                     <td>
