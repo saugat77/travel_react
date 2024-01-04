@@ -31,7 +31,7 @@ const Home = () => {
           </h1>
         </div>
         <div className="cardDiv grid">
-          <div data-aos="fade-right" className="destinationInput">
+          <div className="destinationInput">
             <label htmlFor="city">Search your Destination:</label>
             <div className="input flex">
               <input type="text" name="destination" placeholder='Enter Destination Name....' />

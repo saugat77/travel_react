@@ -10,7 +10,10 @@ import 'aos/dist/aos.css';
 
 
 function Main() {
-  
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   const [loading, setLoading] = useState(false);
   const [destinations, setDestinations] = useState([]);
   const getDestination = () => {
@@ -41,7 +44,7 @@ function Main() {
         <div className="secContent grid">
           {
             destinations.map((u, index) => (
-              <div key={index} className='singleDestination' >
+              <div key={index} data-aos="fade-up" className='singleDestination' >
 
                 <div className="imageDiv">
                   <img src={u.image_src} alt={u.title} />

@@ -5,8 +5,16 @@ import { FiChevronRight, FiSend } from "react-icons/fi";
 import { SiYourtraveldottv } from "react-icons/si";
 import { FaCopyright, FaFacebook, FaInstagram, FaViber } from 'react-icons/fa6';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
+import { useEffect } from 'react';
+
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Footer = () => {
+  //React Hook
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
   return (
     <section className='footer'>
       <div className="footerVideo">
@@ -14,13 +22,13 @@ const Footer = () => {
       </div>
       <div className='footerContent container'>
         <div className="footercontactDiv flex">
-          <div className="text">
+          <div data-aos="fade-up" className="text">
             <small>KEEP IN TOUCH</small>
             <h2>Travel with us</h2>
           </div>
           <div className="inputDiv flex">
-            <input type="text" placeholder='Enter Email Address' />
-            <button className='frontendbtn flex' type='submit'>SEND <FiSend className='icon' /></button>
+            <input data-aos="fade-up" type="text" placeholder='Enter Email Address' />
+            <button data-aos="fade-up" className='frontendbtn flex' type='submit'>SEND <FiSend className='icon' /></button>
           </div>
         </div>
         <div className="footerCard flex">
@@ -30,13 +38,13 @@ const Footer = () => {
                 <SiYourtraveldottv className='logo' /> Travel.
               </a>
             </div>
-            <div className="footerParagraph">
+            <div data-aos="fade-up" className="footerParagraph">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nam
               tenetur nostrum obcaecati! Eum minima minus
               reiciendis ex aliquam voluptatibus aspernatur rem earum sunt soluta
               distinctio, cumque consequatur error dolore.
             </div>
-            <div className='footerSocials flex'>
+            <div data-aos="fade-up" className='footerSocials flex'>
               <FaFacebook className='icon' />
               <FaInstagram className='icon' />
               <AiOutlineWhatsApp className='icon' />
@@ -45,7 +53,7 @@ const Footer = () => {
 
           </div>
           <div className="footerLinks grid">
-            <div className="linkGroup">
+            <div data-aos="fade-up" data-aos-duration="3000" className="linkGroup">
               <span className="groupTitle">
                 Our Agency
               </span>
@@ -74,7 +82,7 @@ const Footer = () => {
                 Payment
               </li>
             </div>
-            <div className="linkGroup">
+            <div data-aos="fade-up" data-aos-duration="4000" className="linkGroup">
               <span className="groupTitle">
                 World Heritage Sites
               </span>
@@ -97,7 +105,7 @@ const Footer = () => {
                 Swayambhunath
               </li>
             </div>
-            <div className="linkGroup">
+            <div data-aos="fade-up" data-aos-duration="5000" className="linkGroup">
               <span className="groupTitle">
                 Travel Destinations
               </span>
