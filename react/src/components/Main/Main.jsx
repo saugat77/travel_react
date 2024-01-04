@@ -5,9 +5,12 @@ import { GrLocation } from 'react-icons/gr';
 import { FaEye } from "react-icons/fa6";
 import Footer from "../Footer/Footer";
 
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Main() {
+  
   const [loading, setLoading] = useState(false);
   const [destinations, setDestinations] = useState([]);
   const getDestination = () => {

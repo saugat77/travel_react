@@ -83,8 +83,13 @@ class DestinationController extends Controller
             'is_active' => 'required',
         ]);
         $destination = DestinationModel::find($id);
-        $destination->update($data);
-        if ($request->has('image_src')) {
+        $destination->title = $data['title'];
+        $destination->location = $data['location'];
+        $destination->category = $data['category'];
+        $destination->fees = $data['fees'];
+        $destination->description = $data['description'];
+        $destination->is_active = $data['is_active'];
+        if ($request->file('image_src')) {
             $image = $request->file('image_src');
             $name = $this->imageReplace($image);
 

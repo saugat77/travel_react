@@ -8,6 +8,7 @@ const destinationForm = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [file, setTempImage] = useState('');
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const [destination, setDestinations] = useState({
     id: null,
@@ -29,10 +30,11 @@ const destinationForm = () => {
     formData.append('category', destination.category);
     formData.append('is_active', destination.is_active);
     formData.append('description', destination.description);
-    formData.append('image_src', file ?? destination.image_src);
+    formData.append('image_src', file ?? null);
     if (destination.id) {
       axiosClient.post(`/destination/update/${destination.id}`, formData).then(({ data }) => {
-        <Link to="/admin/destinations" />
+        setShouldRedirect(true);
+
 
       })
         .catch(err => {
@@ -43,7 +45,8 @@ const destinationForm = () => {
         })
     } else {
       axiosClient.post(`/destination/create`, formData).then(({ data }) => {
-        <Link to="/admin/destinations" />
+        setShouldRedirect(true);
+
       })
         .catch(err => {
           const response = err.response;
@@ -52,7 +55,6 @@ const destinationForm = () => {
           }
         })
     }
-
   }
 
   const imageShow = (event) => {
@@ -81,7 +83,9 @@ const destinationForm = () => {
     fetchData(); // Invoke the fetchData function
 
   }, [axiosClient, id]);
-
+  if (shouldRedirect) {
+    return <Navigate to="/admin/destinations" />;
+  }
 
   return (
     <>
