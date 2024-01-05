@@ -22,7 +22,6 @@
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(2, 15, 29, 0.242);
 }
-
 .header .logo {
   color: var(--blackColor);
   font-weight: 600;
@@ -30,20 +29,18 @@
   align-items: center;
   justify-content: center;
 }
-
 .header .logo .icon {
   font-size: 25px;
   color: var(--PrimaryColor);
   transform: translateY(5px);
 }
-
 @media screen and (max-width: 768px) {
   .header .navBar {
     position: absolute;
     background: var(--whiteColorDeam);
     height: -moz-max-content;
     height: max-content;
-    width: 100%;
+    width: 80%;
     border-radius: 1rem;
     top: -500rem;
     left: 50%;
@@ -66,14 +63,17 @@
     color: var(--textColor);
     font-size: 0.9rem;
     font-weight: 600;
+    text-decoration: none;
   }
   .header .navBar .navLists .navItem .navLink:hover {
     color: var(--PrimaryColor);
   }
-  .header .navBar .navLists .btn {
+  .header .navBar .navLists .frontendbtn {
     margin-top: 1rem;
+    text-decoration: none;
   }
-  .header .navBar .navLists .btn a {
+  .header .navBar .navLists .frontendbtn a {
+    text-decoration: none;
     font-weight: 600;
     color: var(--whiteColor);
   }
@@ -94,9 +94,45 @@
   font-size: 25px;
   color: var(--PrimaryColor);
 }
-
 .header .toggleNavbar:hover.icon {
   color: var(--SecondaryColor);
 }
 
-/*# sourceMappingURL=navbar.css.map */
+@media screen and (min-width: 769px) {
+  .toggleNavbar,
+  .closeNavbar {
+    display: none;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  .header .navBar .navLists {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .header .navBar .navLists .navItem .navLink {
+    color: var(--gradientColor);
+    padding: 0 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .header .navBar .navLists .navItem .navLink:hover {
+    color: var(--PrimaryColor);
+  }
+  .header .navBar .navLists .frontendbtn {
+    margin-left: 1rem;
+  }
+  .header .navBar .navLists .frontendbtn a {
+    text-decoration: none;
+    color: var(--whiteColor);
+    font-weight: 500;
+  }
+}
+@media screen and (min-width: 960px) {
+  .header .navBar .navLists .navItem {
+    padding: 0 0.7rem;
+  }
+}/*# sourceMappingURL=navbar.css.map */
