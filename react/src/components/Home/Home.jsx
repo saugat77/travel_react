@@ -14,9 +14,6 @@ import 'aos/dist/aos.css';
 
 
 const Home = () => {
-  useEffect(() => {
-    Aos.init({ duration: 2000 })
-  }, [])
   return (
     <section className='home'>
       <div className="overlay"></div>
@@ -58,13 +55,13 @@ const Home = () => {
             <span>More Filters</span>
           </div>
         </div>
-        <div data-aos="fade-up" className="homeFooterIcons flex">
-          <div className="leftIcon">
+        <div className="homeFooterIcons flex">
+          <div data-aos="fade-up" className="leftIcon">
             <FaFacebook className='icon' />
             <FaInstagram className='icon' />
             <AiOutlineWhatsApp className='icon' />
           </div>
-          <div className="rightIcon">
+          <div data-aos="fade-up" className="rightIcon">
             <FaListUl className='icon' />
             <TbAppsFilled className='icon' />
           </div>

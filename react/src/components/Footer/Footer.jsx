@@ -84,7 +84,7 @@ const Footer = () => {
             </div>
             <div data-aos="fade-up" data-aos-duration="4000" className="linkGroup">
               <span className="groupTitle">
-                World Heritage Sites
+                Places to Visit
               </span>
               <li className="footerList flex">
                 <FiChevronRight className='icon' />
@@ -92,7 +92,11 @@ const Footer = () => {
               </li>
               <li className="footerList flex">
                 <FiChevronRight className='icon' />
-                Chitwan National Park
+                Chitwan
+              </li>
+              <li className="footerList flex">
+                <FiChevronRight className='icon' />
+                Shivapuri
               </li>
 
               <li className="footerList flex">
